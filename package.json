@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "docker:start": "docker run -p 3000:3000 f-site",
+    "docker": "docker build -t f-site ."
   },
   "dependencies": {
     "next": "12.1.6",
