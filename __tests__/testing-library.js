@@ -1,15 +1,30 @@
-import { render, screen } from '@testing-library/react'
-import Home from '../pages/index'
-import '@testing-library/jest-dom'
+import { render, screen } from "@testing-library/react";
+import Home from "../pages/index";
+import "@testing-library/jest-dom";
 
-describe('Home', () => {
-  it('renders a heading', () => {
-    render(<Home />)
+describe("Home", () => {
+  it("메뉴가 렌더링 되어야 한다", () => {
+    const { getByRole } = render(<Home />);
 
-    const heading = screen.getByRole('heading', {
-      name: /welcome to next\.js!/i,
+    const menu = getByRole('navigation', {
+      name: 'fastcampus',
     })
 
-    expect(heading).toBeInTheDocument()
-  })
-})
+    expect(menu).toBeInTheDocument();
+  });
+
+  it('배너가 렌더링 되어야한다', () => {
+    const { getByRole } = render(<Home />);
+
+    const banner = getByRole('banner')
+    expect(banner).toBeInTheDocument();
+  });
+
+  it('강의목록이 렌더링 되어야한다', () => {
+    const { getByTitle } = render(<Home />);
+
+    const lectureList = getByTitle('lectureList')
+    expect(lectureList).toBeInTheDocument();
+  });
+
+});
