@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 
 import Banner from '@/components/Banner'
 import Menu from '@/components/Menu'
+import LectureGroup from '@/components/lecture/LectureGroup'
 
 
 const Home: NextPage = () => {
@@ -18,10 +19,7 @@ const Home: NextPage = () => {
 
       <Menu />
       <Banner />
-
-      <div title="lectureList">
-        <h1>강의 목록</h1>
-      </div>
+      <LectureGroup />
 
       <footer className={styles.footer}>
         <a
